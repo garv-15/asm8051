@@ -1,0 +1,18 @@
+ORG 0000H
+MOV TMOD, #20H
+MOV TH1, #0FDH
+MOV SCON, #50H
+SETB TR1
+AGAIN: MOV A, #'W'
+       ACALL TRANS
+       MOV A, #'I'
+       ACALL TRANS
+       MOV A, #'T'
+       ACALL TRANS
+       SJMP AGAIN
+
+TRANS: MOV SBUF, A
+HERE:  JNB TI, HERE
+       CLR TI
+       RET
+END

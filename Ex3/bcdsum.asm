@@ -1,0 +1,16 @@
+ORG 0000H
+MOV R0, #10H
+MOV R4, #0AH
+MOV R5, #00H
+MOV R6, #00H
+CLR A
+
+NEXT: ADD A, @R0
+      DA A
+      JNC SKIP
+      INC R5
+
+SKIP: INC R0
+      DJNZ R4, NEXT
+      MOV R6, A
+END

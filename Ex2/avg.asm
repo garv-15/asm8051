@@ -1,0 +1,14 @@
+MOV A, #00H
+MOV R0, #30H
+MOV R1, #0AH
+
+LOOP: MOV B, @R0
+      ADD A, B
+      INC R0
+      DJNZ R1, LOOP
+
+MOV B, #10
+DIV AB
+MOV R3, A
+MOV R4, B
+END
