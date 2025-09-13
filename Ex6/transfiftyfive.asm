@@ -1,0 +1,19 @@
+ORG 0000H
+    MOV TMOD, #20H
+    MOV TH1, #0FDH
+    MOV SCON, #50H
+    SETB TR1
+
+AGAIN:  
+    MOV A, #55H
+    ACALL TRANS
+    SJMP AGAIN
+
+TRANS:  
+    MOV SBUF, A
+HERE:  
+    JNB TI, HERE
+    CLR TI
+    RET
+
+END

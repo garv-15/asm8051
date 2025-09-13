@@ -1,0 +1,10 @@
+ORG 0000H
+    MOV TMOD, #06H
+    MOV TL0, #00H
+BACK:
+    SETB TR0
+    MOV P1, TL0
+    MOV A, P1
+    CJNE A, #10H, BACK
+    CLR TR0
+END
